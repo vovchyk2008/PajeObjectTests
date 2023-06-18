@@ -1,11 +1,11 @@
 Implement following test cases using Page object pattern with Chain of Responsibility pattern
-Test #0
 
+Test #0
 Go to the https://demo.opencart.com/
 Click on 'Brands' at the bottom of the page
 Check that following brands exists on page [Apple,Canon,Hewlett-Packard,HTC,Palm,Sony]
-Test #1
 
+Test #1
 Go to the https://demo.opencart.com/
 1. Click  MyAccount
 2. Click Login
@@ -13,8 +13,8 @@ Go to the https://demo.opencart.com/
 4. Fill email
 5. Click Continue button
 6. Check Alert message
-Test #2
 
+Test #2
 Go to the https://demo.opencart.com/
 Hover over Desktops from top menu
 Click on Show All Desktops
@@ -24,8 +24,8 @@ Check that 10 products display on page
 Select 25 from Show dropdown
 Check that 12 products now displayed
 Check that text 'Showing 1 to 12 of 12 (1 Pages)' displays on the bottom of the page
-Test #3
 
+Test #3
 Go to the https://demo.opencart.com/
 Hover over Desktops from top menu
 Click on Show All Desktops
@@ -33,8 +33,8 @@ Select 'Name (A - Z)' from Sort by dropdown
 Check that products were sorted correctly
 Select 'Price (Low > High)' from Sort by dropdown
 Check that products were sorted correctly
-Test #4
 
+Test #4
 Go to the https://demo.opencart.com/
 On the main page check that current currency is $ (change to $ id not)
 Click on the Iphone
@@ -43,8 +43,8 @@ Change currency to euro
 Check that price 106.04
 Change currency to Pound Sterling
 Check that price 95.32
-Test #5
 
+Test #5
 Go to the https://demo.opencart.com/
 Click on the Cameras
 Check that 2 cameras exist on page

@@ -56,11 +56,4 @@ public class Test5 extends BaseTest {
     softAssertions.assertAll();
 
   }
-
 }
-//Go to the https://demo.opencart.com/
-//Click on the Cameras
-//Check that 2 cameras exist on page
-//Check that Canon EOS 5D has old price 122.00
-//Check that Canon EOS 5D has new price 98.00
-//Check that Nikon D300 has ex.rate 80.00

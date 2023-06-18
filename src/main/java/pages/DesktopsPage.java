@@ -45,13 +45,7 @@ public class DesktopsPage extends BasePage {
   }
 
   public List<ProductBlock> getAllProductsFromPage() {
-    List<ProductBlock> products = new ArrayList<>();
-    List<WebElement> elements = getDriver().findElements(productContainer);
-    for (WebElement element : elements) {
-      ProductBlock productBlock = new ProductBlock(element);
-      products.add(productBlock);
-    }
-    return products;
+    return Utils.getAllProductsFromPage(productContainer);
   }
 
   public DesktopsPage selectSortBy(SortingBy sort) {

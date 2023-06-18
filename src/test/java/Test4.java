@@ -70,11 +70,3 @@ public class Test4 extends BaseTest {
     softAssertions.assertAll();
   }
 }
-//Go to the https://demo.opencart.com/
-//On the main page check that current currency is $ (change to $ id not)
-//Click on the Iphone
-//Check that price 123.20
-//Change currency to euro
-//Check that price 106.04
-//Change currency to Pound Sterling
-//Check that price 95.32

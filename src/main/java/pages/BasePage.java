@@ -22,9 +22,6 @@ public abstract class BasePage {
     driver = webDriver;
   }
 
-
-//Utils utils = new Utils(getDriver());
-
   FooterBlock footerBlock = new FooterBlock(getDriver());
   CurrencyAndLoginBlock currencyAndLoginBlock = new CurrencyAndLoginBlock(getDriver());
   MainMenuBlock mainMenuBlock = new MainMenuBlock(getDriver());
