@@ -1,4 +1,4 @@
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
@@ -18,7 +18,7 @@ public class Test5 extends BaseTest {
     int expectedNumberOfProductsOnThePage = 2;
 
     MainPage mainPage = new MainPage();
-    List<ProductBlock> allProductsFromPage = mainPage
+    List<ProductsBlock> allProductsFromPage = mainPage
         .getMainMenuBlock()
         .clickOnCamerasMenuButton()
         .getAllProductsFromCamerasPage();
@@ -31,9 +31,9 @@ public class Test5 extends BaseTest {
         .hasSize(expectedNumberOfProductsOnThePage);
 
     CamerasPage camerasPage = new CamerasPage();
-    ProductBlock canonProduct = camerasPage
+    ProductsBlock canonProduct = camerasPage
         .getProductByName(allProductsFromPage, canonProductName);
-    ProductBlock nikonProduct = camerasPage
+    ProductsBlock nikonProduct = camerasPage
         .getProductByName(allProductsFromPage, nikonProductName);
 
     //Check that Canon EOS 5D has old price 122.00

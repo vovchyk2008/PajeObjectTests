@@ -2,7 +2,7 @@ package utils;
 
 import static pages.BasePage.getDriver;
 
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import enums.NumberOfDisplayedProducts;
 import enums.SortingBy;
 import java.time.Duration;
@@ -47,12 +47,12 @@ public class Utils {
         .until(ExpectedConditions.presenceOfElementLocated(locator));
   }
 
-  public static List<ProductBlock> getAllProductsFromPage(By container) {
-    List<ProductBlock> products = new ArrayList<>();
+  public static List<ProductsBlock> getAllProductsFromPage(By container) {
+    List<ProductsBlock> products = new ArrayList<>();
     List<WebElement> elements = getDriver().findElements(container);
     for (WebElement element : elements) {
-      ProductBlock productBlock = new ProductBlock(element);
-      products.add(productBlock);
+      ProductsBlock productsBlock = new ProductsBlock(element);
+      products.add(productsBlock);
     }
     return products;
   }
@@ -99,13 +99,13 @@ public class Utils {
   }
 
   public static void clickOnProductByName(By container, String name) {
-    List<ProductBlock> products = new ArrayList<>();
+    List<ProductsBlock> products = new ArrayList<>();
     List<WebElement> elements = getDriver().findElements(container);
     for (WebElement element : elements) {
-      ProductBlock productBlock = new ProductBlock(element);
-      products.add(productBlock);
+      ProductsBlock productsBlock = new ProductsBlock(element);
+      products.add(productsBlock);
     }
-    for (ProductBlock product : products) {
+    for (ProductsBlock product : products) {
       if (product.getNameAsString().equals(name)) {
         product.getImg().click();
       }

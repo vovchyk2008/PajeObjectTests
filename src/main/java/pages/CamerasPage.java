@@ -1,6 +1,6 @@
 package pages;
 
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import java.util.List;
 import org.openqa.selenium.By;
 import utils.Utils;
@@ -10,12 +10,12 @@ public class CamerasPage extends BasePage {
   private final By productContainer = By.xpath("//div[@class='product-thumb']");
 
 
-  public List<ProductBlock> getAllProductsFromCamerasPage() {
+  public List<ProductsBlock> getAllProductsFromCamerasPage() {
     return Utils.getAllProductsFromPage(productContainer);
   }
 
-  public ProductBlock getProductByName(List<ProductBlock> products, String productName) {
-    for (ProductBlock product : products) {
+  public ProductsBlock getProductByName(List<ProductsBlock> products, String productName) {
+    for (ProductsBlock product : products) {
       if (product.getNameAsString().equals(productName)) {
         return product;
       }

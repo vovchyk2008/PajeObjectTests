@@ -1,6 +1,6 @@
 package pages;
 
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import enums.NumberOfDisplayedProducts;
 import enums.SortingBy;
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import java.util.Comparator;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import utils.Utils;
 
 public class DesktopsPage extends BasePage {
@@ -44,7 +43,7 @@ public class DesktopsPage extends BasePage {
     return sortByValue;
   }
 
-  public List<ProductBlock> getAllProductsFromPage() {
+  public List<ProductsBlock> getAllProductsFromPage() {
     return Utils.getAllProductsFromPage(productContainer);
   }
 
@@ -62,24 +61,24 @@ public class DesktopsPage extends BasePage {
     return find(textOnTheBottomOfThePage).getText();
   }
 
-  public List<ProductBlock> getSortedProductsFromAToZ(
-      List<ProductBlock> getAllProductsFromAllProductsPage) {
-    List<ProductBlock> products = new ArrayList<>(getAllProductsFromAllProductsPage);
-    products.sort(new Comparator<ProductBlock>() {
+  public List<ProductsBlock> getSortedProductsFromAToZ(
+      List<ProductsBlock> getAllProductsFromAllProductsPage) {
+    List<ProductsBlock> products = new ArrayList<>(getAllProductsFromAllProductsPage);
+    products.sort(new Comparator<ProductsBlock>() {
       @Override
-      public int compare(ProductBlock o1, ProductBlock o2) {
+      public int compare(ProductsBlock o1, ProductsBlock o2) {
         return o1.getNameAsString().compareToIgnoreCase(o2.getNameAsString());
       }
     });
     return products;
   }
 
-  public List<ProductBlock> getSortedProductsByPriceFromLowToHigh(List<ProductBlock> getAllProductsFromAllProductsPage) {
-    List<ProductBlock> products = new ArrayList<>(getAllProductsFromAllProductsPage);
+  public List<ProductsBlock> getSortedProductsByPriceFromLowToHigh(List<ProductsBlock> getAllProductsFromAllProductsPage) {
+    List<ProductsBlock> products = new ArrayList<>(getAllProductsFromAllProductsPage);
 
-    products.sort(new Comparator<ProductBlock>() {
+    products.sort(new Comparator<ProductsBlock>() {
       @Override
-      public int compare(ProductBlock o1, ProductBlock o2) {
+      public int compare(ProductsBlock o1, ProductsBlock o2) {
         return o1.getActualPriceAsDouble().compareTo(o2.getActualPriceAsDouble());
       }
     });

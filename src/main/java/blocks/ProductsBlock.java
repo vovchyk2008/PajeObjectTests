@@ -1,8 +1,5 @@
 package blocks;
 
-import java.text.DecimalFormat;
-import java.util.Locale;
-import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -10,7 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 @Getter
-public class ProductBlock {
+public class ProductsBlock {
 
   private WebElement img;
   private WebElement nameAsWebElement;
@@ -29,7 +26,7 @@ public class ProductBlock {
 
 
   //container //div[@id='product-list']//div[@class='col']
-  public ProductBlock(WebElement container){
+  public ProductsBlock(WebElement container) {
     try {
       this.img = container.findElement(By.xpath(".//div[@class='image']"));
     } catch (NoSuchElementException e) {
@@ -45,32 +42,36 @@ public class ProductBlock {
     }
 
     try {
-      this.descriptionAsWebElement = container.findElement(By.xpath(".//div[@class='description']/p"));
+      this.descriptionAsWebElement = container
+          .findElement(By.xpath(".//div[@class='description']/p"));
       this.description = descriptionAsWebElement.getText();
     } catch (NoSuchElementException e) {
       this.descriptionAsWebElement = null;
       this.description = null;
     }
 
-     try {
+    try {
       this.actualPrice = container.findElement(By.xpath(".//span[@class='price-new']")).getText();
-      this.actualPriceAsDouble = Double.parseDouble(StringUtils.substring(actualPrice, 1).replace(",", ""));
+      this.actualPriceAsDouble = Double
+          .parseDouble(StringUtils.substring(actualPrice, 1).replace(",", ""));
     } catch (NoSuchElementException e) {
       this.actualPrice = null;
       this.actualPriceAsDouble = null;
     }
 
-     try {
+    try {
       this.oldPrice = container.findElement(By.xpath(".//span[@class='price-old']")).getText();
-      this.oldPriceAsDouble = Double.parseDouble(StringUtils.substringAfter(oldPrice, "$").replace(",", ""));
+      this.oldPriceAsDouble = Double
+          .parseDouble(StringUtils.substringAfter(oldPrice, "$").replace(",", ""));
     } catch (NoSuchElementException e) {
       this.oldPrice = null;
       this.oldPriceAsDouble = null;
     }
 
-     try {
+    try {
       this.exTax = container.findElement(By.xpath(".//span[@class='price-tax']")).getText();
-      this.exTaxAsDouble = Double.parseDouble(StringUtils.substringAfter(exTax, "$").replace(",", ""));
+      this.exTaxAsDouble = Double
+          .parseDouble(StringUtils.substringAfter(exTax, "$").replace(",", ""));
     } catch (NoSuchElementException e) {
       this.exTax = null;
       this.exTaxAsDouble = null;
@@ -83,13 +84,15 @@ public class ProductBlock {
     }
 
     try {
-      this.addToWishList = container.findElement(By.xpath(".//button[@aria-label='Add to Wish List']"));
+      this.addToWishList = container
+          .findElement(By.xpath(".//button[@aria-label='Add to Wish List']"));
     } catch (NoSuchElementException e) {
       this.img = null;
     }
 
     try {
-      this.compareThisProduct = container.findElement(By.xpath(".//button[@aria-label='Compare this Product']"));
+      this.compareThisProduct = container
+          .findElement(By.xpath(".//button[@aria-label='Compare this Product']"));
     } catch (NoSuchElementException e) {
       this.img = null;
     }

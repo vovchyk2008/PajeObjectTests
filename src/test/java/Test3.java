@@ -2,7 +2,7 @@ import static enums.MainMenuButtons.DESKTOPS;
 import static enums.SortingBy.NAME_A_TO_Z;
 import static enums.SortingBy.PRICE_LOW_TO_HIGH;
 
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
@@ -14,7 +14,7 @@ public class Test3 extends BaseTest {
   @Test
   public void checkThatSortingIsCorrectTest() {
     MainPage mainPage = new MainPage();
-    List<ProductBlock> allProductsFromPageAfterSortingFromAToZ = mainPage
+    List<ProductsBlock> allProductsFromPageAfterSortingFromAToZ = mainPage
         .getMainMenuBlock()
         .hoverToButton(DESKTOPS)
         .clickOnShowAllDesktopsSubMenuButton()
@@ -22,7 +22,7 @@ public class Test3 extends BaseTest {
         .getAllProductsFromPage();
 
     DesktopsPage desktopsPage = new DesktopsPage();
-    List<ProductBlock> sortedProductsFromAToZ = desktopsPage
+    List<ProductsBlock> sortedProductsFromAToZ = desktopsPage
         .getSortedProductsFromAToZ(allProductsFromPageAfterSortingFromAToZ);
 
     //Check that products were sorted By 'Name (A - Z)' correctly
@@ -31,11 +31,11 @@ public class Test3 extends BaseTest {
         .as("We are waiting that sorting must be correct")
         .isEqualTo(sortedProductsFromAToZ);
 
-    List<ProductBlock> allProductsFromPageAfterSortingByPriceFromLowToHigh = desktopsPage
+    List<ProductsBlock> allProductsFromPageAfterSortingByPriceFromLowToHigh = desktopsPage
         .selectSortBy(PRICE_LOW_TO_HIGH)
         .getAllProductsFromPage();
 
-    List<ProductBlock> sortedProductsByPriceFromLowToHigh = desktopsPage
+    List<ProductsBlock> sortedProductsByPriceFromLowToHigh = desktopsPage
         .getSortedProductsByPriceFromLowToHigh(allProductsFromPageAfterSortingByPriceFromLowToHigh);
 
     //Check that products were sorted By 'Price (Low > High)' correctly

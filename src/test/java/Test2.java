@@ -1,7 +1,7 @@
 import static enums.MainMenuButtons.DESKTOPS;
 import static enums.NumberOfDisplayedProducts.SHOW_25;
 
-import blocks.ProductBlock;
+import blocks.ProductsBlock;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
@@ -37,13 +37,13 @@ public class Test2 extends BaseTest {
         .as("We are waiting for the next value from the SortDropdown" + expectedValueInSortDropdown)
         .isEqualTo(expectedValueInSortDropdown);
 
-    List<ProductBlock> allProductsFromPage = new DesktopsPage().getAllProductsFromPage();
+    List<ProductsBlock> allProductsFromPage = new DesktopsPage().getAllProductsFromPage();
     softAssertions.assertThat(allProductsFromPage)
         .as("We are waiting that number of products on the page will be "
             + expectedNumberOfProductsOnPage)
         .hasSize(expectedNumberOfProductsOnPage);
 
-    List<ProductBlock> allProductsFromPageAfterSelection = new DesktopsPage()
+    List<ProductsBlock> allProductsFromPageAfterSelection = new DesktopsPage()
         .selectTheNumberOfShowingElementsOnThePage(SHOW_25)
         .getAllProductsFromPage();
 

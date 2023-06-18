@@ -5,7 +5,7 @@ import static enums.Currency.€;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
-import pages.ProductPage;
+import pages.SingleProductPage;
 
 public class Test4 extends BaseTest {
 
@@ -34,33 +34,37 @@ public class Test4 extends BaseTest {
         .getCurrencyAndLoginBlock()
         .selectCurrency($);
 
-    double actualProductPriceInDollars = mainPage
+    Double actualProductPriceInDollars = mainPage
         .clickOnProductByName(productName)
-        .getActualProductPrice();
+        .getProductInfo()
+        .getActualPriceAsDouble();
 
     //Check product price in Dollars
     softAssertions.assertThat(actualProductPriceInDollars)
         .as("Product price in Dollars must be " + expectedIphonePriceInDollars)
         .isEqualTo(expectedIphonePriceInDollars);
 
-    ProductPage productPage = new ProductPage();
-    productPage
+    SingleProductPage singleProductPage = new SingleProductPage();
+    singleProductPage
         .getCurrencyAndLoginBlock()
         .selectCurrency(€);
 
-    double actualProductPriceInEuros = productPage.getActualProductPrice();
+    double actualProductPriceInEuros = singleProductPage
+        .getProductInfo()
+        .getActualPriceAsDouble();
 
     //Check product price in Euros
     softAssertions.assertThat(actualProductPriceInEuros)
         .as("Product price in Euros must be " + expectedIphonePriceInEuros)
         .isEqualTo(expectedIphonePriceInEuros);
 
-    productPage
+    singleProductPage
         .getCurrencyAndLoginBlock()
         .selectCurrency(£);
 
-    double actualProductPriceInPounds = productPage
-        .getActualProductPrice();
+    double actualProductPriceInPounds = singleProductPage
+        .getProductInfo()
+        .getActualPriceAsDouble();
 
     //Check product price in Pound Sterling
     softAssertions.assertThat(actualProductPriceInPounds)
